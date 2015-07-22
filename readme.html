@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>READ ME</title>
+<style>
+body{margin:0; padding:12px; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif;}
+h1{font-size:36px;}
+h1 i{font-size:24px;}
+h2{font-size:18px;background:#F1F1F1; padding:2px; line-height:28px; border:1px #ddd solid;}
+p{padding:2px; line-height:24px;}
+a{color:#09F; text-decoration:none;}
+ul li{line-height:28px;}
+.code{font-style:italic; color:#F00;}
+</style>
+</head>
+
+<body>
+<h1>MSDB<i>v2.4.1</i></h1>
+<i>A user-friendly program for reporting distribution and building database of microsatellites from genomic sequence</i>
+<h2>Contents</h2>
+<ul>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#license">License</a></li>
+	<li><a href="#system">System Requirements</a></li>
+	<li><a href="#installation">Installation</a></li>
+	<li><a href="#format">Format Support</a></li>
+	<li><a href="#database">Database</a></li>
+	<li><a href="#statistics">Statistics</a></li>
+	<li><a href="#use">How to use</a></li>
+	<li><a href="#contact">Contact</a></li>
+</ul>
+<h2>Introduction<a name="introduction" id="introduction"></a></h2>
+<p>MSDB  (<u>M</u>icrosatellite <u>S</u>earch and Building Database) is specially  designed to offer you a user-friendly interface for finding microsatellite  markers, their exact position and frequency of occurrence from genomic  sequence. MSDB can accept large number of sequences in GenBank, FASTA and EMBL  formats as input and large number of motifs can be searched simultaneously. The  program not only can search pure microsatellite but also can search compound  and complex microsatellite. The outputs are Microsoft Excel statistics and SQLite  database file which is convenient for analysis and classification of  microsatellites. The program is designed to run on Windows and Linux system as  a standalone application with a user-friendly interface.</p>
+<h2>License<a name="license" id="license"></a></h2>
+<p>Like most software, MSDB is distributed under a license, which means there are certain things that you are legally permitted (and not permitted) to do with MSDB software and source code. MSDB is distributed under a license called the <a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_blank" >GNU General Public License</a>, a very popular license in the open source industry.</p>
+<h2>System Requirements<a name="system" id="system"></a></h2>
+<p>MSDB  is a standalone Perl program and can be run on Windows and Linux operating  system. So you do not have Perl or other modules to be installed on your  personal computer. But you should ensure that Microsoft Office Excel 2003 or  higher have been installed to open the statistical file. On Linux, instead of  Microsoft Office, the free software Open Office (<a href="http://www.openoffice.org/" target="_blank">http://www.openoffice.org/</a>) can  be installed. <br />
+</p>
+<p>The  installation of the program requires at least 20MB of disk space but you should  assume that your actual disk space will be somewhat higher. And at least 25Mb  of RAW is required to run the program. </p>
+<h2>Installation<a name="installation" id="installation"></a></h2>
+<p><strong>Installation on windows</strong><br />
+  1.The preferred way to install MSDB is to directly download it as a single compressed ZIP file from <a href="http://msdb.biosv.com/" target="_blank">http://msdb.biosv.com/</a>. Then you must use a program, such as WinZip, to uncompress this ZIP file into a specified directory. <br />
+  2.Once downloaded and expanded on your hard drive, simply double-click on the Installer, and the appropriate files will be installed on your computer.<br />
+3.Try to run MSDB from the windows start menu.</p>
+<p><strong>Installation on Linux</strong><br />
+  You'll probably want to operate from inside your home directory. If your user is (for example) username, your home directory will be /home/username/. For the rest of this section we will assume you have downloaded your zip file to /home/username/MSDB. If you do not have a MSDB directory, you can create it with the following &quot;mkdir&quot; (make directory) command:<br />
+  Code: mkdir /home/username/MSDB/<br />
+  1.Download the package MSDB-2.4.tar.gz from http://msdb.biosv.com/.<br />
+  2.Change to the /home/username/MSDB directory with the &quot;cd&quot; command like so:<br />
+  <em class="code">Code: cd /home/username/MSDB/</em><br />
+  3.We now need to unzip the zipped file:<br />
+  <span class="code">Code: tar –xvfz MSDB-2.4.tar.gz</span><br />
+  4.We now need to go into the new directory, so use the cd command:<br />
+  <span class="code">Code: cd MSDB-2.4</span><br />
+  5.Make sure the file is set to &quot;executable&quot; by running this command:<br />
+  <span class="code">Code: chmod +x MSDB;</span><br />
+  <span class="code">chmod +x SWP;</span><br />
+  <span class="code">chmod +x SWR</span><br />
+6.Run the program like this:<br />
+<span class="code">Code: ./MSDB</span><br />
+Or double click the &quot;MSDB&quot; directly to run the program.</p>
+<h2>Format Support<a name="format" id="format"></a></h2>
+<ul>
+		<li>
+			<b>FASTA</b><br>
+			<i>A sequence in FASTA format begins with a single-line description, followed by lines of sequence data. The description line (defline) is distinguished from the sequence data by a greater-than (">") symbol at the beginning.
+			</i>
+		</li>
+		<li>
+			<b>GenBank</b><br>
+			<i>GenBank format (GenBank Flat File Format) consists of an annotation section and a sequence section. The start of the annotation section is marked by a line beginning with the word "LOCUS". The start of sequence section is marked by a line beginning with the word "ORIGIN" and the end of the section is marked by a line with only "//".</i>	
+		</li>
+		<li><b>EMBL</b><br>
+			<i>A sequence in EMBL format start with an identifier line "ID", followed by further annotation lines. The start of the sequence is marked by a line starting with "SQ" and the end of the sequence is marked by two slashes ("//"). </i>
+        </li>
+		<li><b>Plain sequence</b><br>
+		  <i>A file in plain sequence format may only contain one sequence. And the sequence in plain format may contain only <a href="http://www.genomatix.de/online_help/help/sequence_formats.html#IUPAC" target="_blank" >IUPAC characters</a> and spaces (no numbers!).</i>
+  </li>
+		<li><b>Pure sequence</b><br>
+			<i>A sequence in this format just like plain sequence above, except space it can also contain numbers.</i>
+		</li>
+</ul>
+<h2>Database<a name="database" id="database"></a></h2>
+<p>
+</p>
+MSDB  will automatically generate a sqlite database file to save microsatellite  information. There are two tables, ssr and file, within the database used to  store data record. Table ssr used to store information of each microsatellite  has 12 fields: uid, motif, type, complexity, repeats, length, seq, start, end, left,  right, source. The description of each field was shown in table 1.
+<p align="center"><em>Table 1. The  description of each field in table ssr of database</em></p>
+<table border="1" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="102" align="center" valign="middle">Field</td>
+    <td width="466" valign="top"><p align="center">Description</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">uid</p></td>
+    <td width="466" valign="top"><p>An    automatically increased number as the identifier of microsatellite</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">motif</p></td>
+    <td width="466" valign="top"><p>The    motif for pure microsatellite or the ssr couple for compound microsatellite    or the ssr cluster for complex microsatellite</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">type</p></td>
+    <td width="466" valign="top"><p>The    type of microsatellite (value: p, ip, cd, icd, cx or icx)</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">complexity</p></td>
+    <td width="466" valign="top"><p>The    number of individual SSRs within a microsatellite (pure microsatellite = 1,    compound microsatellite = 2 and complex microsatellite &gt; 2)</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">repeats</p></td>
+    <td width="466" valign="top"><p>The    repeats number of motif (the sum of the repeats of all motifs for interrupted    pure, compound and complex microsatellite )</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">length</p></td>
+    <td width="466" valign="top"><p>The    length of microsatellite</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">seq</p></td>
+    <td width="466" valign="top"><p>The    sequence of microsatellite (example: (AC)7-GTCC-(AG)8)</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">start</p></td>
+    <td width="466" valign="top"><p>The    start site of microsatellite</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">end</p></td>
+    <td width="466" valign="top"><p>The    end site of microsatellite</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">left</p></td>
+    <td width="466" valign="top"><p>The    left flanking sequence of microsatellite</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">right</p></td>
+    <td width="466" valign="top"><p>The    right flanking sequence of microsatellite</p></td>
+  </tr>
+  <tr>
+    <td width="102" align="center" valign="middle"><p align="center">source</p></td>
+    <td width="466" valign="top"><p>The    name of sequence file where microsatellite was found</p></td>
+  </tr>
+</table>
+<p>And  table file used to store information of each sequence file has four fields:  filename, size, count, length. The description of each field was shown in table  2.</p>
+<p align="center"><em>Table 2. The  description of each field in table file of database</em></p>
+<table border="1" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="102" align="center" valign="middle">Field </td>
+    <td width="466" valign="top"><p align="center">description</p></td>
+  </tr>
+  <tr>
+    <td width="102" valign="top"><p align="center">filename</p></td>
+    <td width="466" valign="top"><p>The    name of sequence file</p></td>
+  </tr>
+  <tr>
+    <td width="102" valign="top"><p align="center">size</p></td>
+    <td width="466" valign="top"><p>The    length of sequence in sequence file</p></td>
+  </tr>
+  <tr>
+    <td width="102" valign="top"><p align="center">count</p></td>
+    <td width="466" valign="top"><p>Total    counts of microsatellites found in sequence file</p></td>
+  </tr>
+  <tr>
+    <td width="102" valign="top"><p align="center">length</p></td>
+    <td width="466" valign="top"><p>Total    length of microsatellites found in sequence file</p></td>
+  </tr>
+</table>
+<p>Table  ssr and file build relationship with each other by fields source and filename.  Each microsatellite has its own features: motif, repeats, type, complexity,  length, location, flanking sequence and source. The program will insert these  features as a record into table ssr of database. And for each sequence file, its file name, total length of sequence, total  counts of microsatellites will be inserted into table file of database.</p>
+<h2>Statistics<a name="statistics" id="statistics"></a></h2>
+<p>The  perfect search mode and imperfect search mode have different statistical  options. These statistical options contain 5 common columns: total counts,  total length (bp), average length (bp), frequency (loci/Mb) and density (bp/Mb).  The SSR frequency was measured as the average number of SSRs per megabase:</p>
+<p align="center">F = (N/G) x 1000000</p>
+<p>
+Where <em>F</em> was the frequency of SSR, <em>N </em>was the total number of SSR, and G is  the size of the whole genome sequence. The SSR density was measured by the  total SSR length per megabase:</p>
+<p align="center">F = (L/G) x 1000000</p>
+<p>Where<em> D</em> was the density of the SSR, <em>L</em> was the total length of SSR.
+</p>
+<h2>How to use<a name="use" id="use"></a></h2>
+<p>
+For more detail information, please see the manual.
+</p>
+<h2>Contact<a name="contact" id="contact"></a></h2>
+<p>
+Author: Lianming Du.<br>
+Email: adu220@126.com.<br>
+Homepage: <a href="http://msdb.biosv.com/" target="_blank">http://msdb.biosv.com/</a></p>
+</body>
+</html>
