@@ -14,3 +14,6 @@ There is a full manual that contains information on running the program as a sta
 Though we are using this software successfully, there's a small chance of bugs turning up somewhere. Should you find any, please contact us and we will squash them. We welcome comments and suggestions for new features or other improvements.
 
 Email: adu220@126.com
+
+##Cite
+Lianming Du, Yuzhi Li, Xiuyue Zhang, Bisong Yue (2013) MSDB: a user-friendly program for reporting distribution and building databases of microsatellites from genome sequences. Journal of Heredity. 104(1):154-157.
