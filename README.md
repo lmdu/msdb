@@ -1,3 +1,4 @@
+### Recommended to use Krait https://github.com/lmdu/krait
 ## What is MSDB
 MSDB (Microsatellite Search and Building Database) is specially designed to offer you a user-friendly interface for finding microsatellite markers, their exact position and frequency of occurrence from genomic sequence. MSDB can accept large number of sequences in GenBank, FASTA and EMBL formats as input and large number of motifs can be searched simultaneously. The program not only can search pure microsatellite but also can search compound and complex microsatellite. The outputs are Microsoft Excel statistics and SQLite database file which is convenient for analysis and classification of microsatellites. MSDB also can generate sliding window plot to show distribution of microsatellite on chromosome or sequence. The program is designed to run on Windows and Linux system as a standalone application with a user-friendly interface.
 
